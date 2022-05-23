@@ -22,24 +22,10 @@ func plantUMLBase64(input []byte) []byte {
 	return []byte(encoding.EncodeToString(input))
 }
 
-// func brotliCompress(content []byte) ([]byte, error) {
-// 	var comp bytes.Buffer
-// 	w := brotli.NewWriterLevel(&comp, 11)
-// 	_, writeErr := w.Write(content)
-// 	if writeErr != nil {
-// 		return nil, writeErr
-// 	}
-// 	_ = w.Close()
-// 	return comp.Bytes(), nil
-// }
-
 func deflateCompress(content []byte) ([]byte, error) {
 	var comp bytes.Buffer
 	w, _ := flate.NewWriter(&comp, flate.HuffmanOnly)
-	_, writeErr := w.Write(content)
-	if writeErr != nil {
-		return nil, writeErr
-	}
+	_, _ = w.Write(content)
 	_ = w.Flush()
 	_ = w.Close()
 	return comp.Bytes(), nil
@@ -50,34 +36,37 @@ func FindFiles(afs *afero.Afero, path string, re string) ([]string, error) {
 	if e != nil {
 		return nil, e
 	}
-
 	var files []string
 	e = afs.Walk(path, func(filePath string, info os.FileInfo, err error) error {
 		if err == nil && libRegEx.MatchString(info.Name()) {
 			files = append(files, filePath)
+		} else {
+			return err
 		}
 		return nil
 	})
 	if e != nil {
 		return nil, e
 	}
-	return files, nil
+	return files, e
 }
 
-func ReadFileContentString(afs *afero.Afero, path string) string {
+func ReadFileContentString(afs *afero.Afero, path string) (string, error) {
 	content, err := afs.ReadFile(path)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return string(""), err
 	}
-	return string(content)
+	return string(content), err
 }
 
-func ReadFileContentBytes(afs *afero.Afero, filePath string) []byte {
+func ReadFileContentBytes(afs *afero.Afero, filePath string) ([]byte, error) {
 	content, err := afs.ReadFile(filePath)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil, err
 	}
-	return content
+	return content, err
 }
 
 func HexEncodedURL(content []byte) string {
@@ -88,27 +77,22 @@ func HexEncodedURL(content []byte) string {
 func DeflateEncodedURL(content []byte) string {
 	comp, err := deflateCompress(content)
 	if err != nil {
-		log.Fatal()
+		log.Println()
 	}
 	encoded := plantUMLBase64(comp)
 	return fmt.Sprintf("%s/%s", PLANTUML_URL, string(encoded))
 }
 
-// func brotliEncodedURL(content []byte) string {
-// 	comp, err := brotliCompress(content)
-// 	if err != nil {
-// 		log.Fatal()
-// 	}
-// 	encoded := plantUMLBase64(comp)
-// 	return fmt.Sprintf("%s/0%s", PLANTUML_URL, string(encoded))
-// }
-
-func ReplaceLineInFile(afs *afero.Afero, filePath string, searchString string, replaceString string) bool {
+func ReplaceLineInFile(afs *afero.Afero, filePath string, searchString string, replaceString string) (bool, error) {
 	libRegEx, e := regexp.Compile(searchString)
 	if e != nil {
-		log.Fatal(e)
+		log.Println(e)
+		return false, e
 	}
-	content := ReadFileContentString(afs, filePath)
+	content, err := ReadFileContentString(afs, filePath)
+	if err != nil {
+		return false, err
+	}
 	lines := strings.Split(content, "\n")
 
 	for i, line := range lines {
@@ -118,10 +102,7 @@ func ReplaceLineInFile(afs *afero.Afero, filePath string, searchString string, r
 		}
 	}
 	output := strings.Join(lines, "\n")
-	err := afs.WriteFile(filePath, []byte(output), 0644)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	_ = afs.WriteFile(filePath, []byte(output), 0644)
 	log.Print("Updated image tags in ", filePath)
-	return true
+	return true, nil
 }

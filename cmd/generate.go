@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/devops-kung-fu/common/util"
 	"github.com/gookit/color"
 	"github.com/spf13/cobra"
 
 	"github.com/devops-kung-fu/gardener/src"
-	"github.com/devops-kung-fu/gardener/util"
 )
 
 var (
@@ -58,7 +58,10 @@ func generate(path string) {
 		})
 
 		for _, diagramFile := range diagramFiles {
-			diagramContent := src.ReadFileContentBytes(Afs, diagramFile)
+			diagramContent, err := src.ReadFileContentBytes(Afs, diagramFile)
+			if util.IsErrorBool(err) {
+				log.Fatal(err)
+			}
 			var url string
 			if deflate {
 				log.Print("Deflate Encoding Diagram for: ", diagramFile)
@@ -70,7 +73,7 @@ func generate(path string) {
 
 			searchImageStub := fmt.Sprintf("\\!\\[%s\\]\\(.*\\)", diagramFile)
 			replaceImageStub := fmt.Sprintf("![%s](%s)", diagramFile, url)
-			src.ReplaceLineInFile(Afs, markdownFile, searchImageStub, replaceImageStub)
+			_, _ = src.ReplaceLineInFile(Afs, markdownFile, searchImageStub, replaceImageStub)
 		}
 	}
 	util.DoIf(Verbose, func() {

@@ -7,11 +7,10 @@ import (
 	"log"
 	"os"
 
+	"github.com/devops-kung-fu/common/util"
 	"github.com/gookit/color"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
-
-	"github.com/devops-kung-fu/gardener/util"
 )
 
 var (
