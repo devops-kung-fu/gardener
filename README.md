@@ -2,7 +2,7 @@
 
 # gardener
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/gardener) [![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/hookz)](https://goreportcard.com/report/github.com/devops-kung-fu/gardener) [![codecov](https://codecov.io/gh/devops-kung-fu/gardener/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/gardener) [![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-1.4-informational)](gardener-sbom.json)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/gardener) [![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/hookz)](https://goreportcard.com/report/github.com/devops-kung-fu/gardener) [![codecov](https://codecov.io/gh/devops-kung-fu/gardener/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/gardener) [![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-informational)](gardener-sbom.json)
 
 A utility that renders PlantUML diagram source in Markdown image tags. 
 
