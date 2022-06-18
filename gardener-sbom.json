@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:2f4c90c3-2dc6-4aa6-a793-f40e7a60f9e4",
+  "serialNumber": "urn:uuid:d2beb6a6-3594-4aa3-9264-cd5412c7376d",
   "version": 1,
   "metadata": {
-    "timestamp": "2022-05-23T11:01:00-06:00",
+    "timestamp": "2022-06-18T12:17:39-06:00",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -78,18 +78,18 @@
   },
   "components": [
     {
-      "bom-ref": "pkg:golang/github.com/devops-kung-fu/common@v0.2.0?type=module",
+      "bom-ref": "pkg:golang/github.com/devops-kung-fu/common@v0.2.1?type=module",
       "type": "library",
       "name": "github.com/devops-kung-fu/common",
-      "version": "v0.2.0",
+      "version": "v0.2.1",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "6bd1a4d5c6a8c3102b41d360c3180bc68729f0f46f4e1bbe1f34fafe66da6eae"
+          "content": "5b2ddb5b63b6ebd09674276c265acebd102a22777fbd1f4b3c848547c537357d"
         }
       ],
-      "purl": "pkg:golang/github.com/devops-kung-fu/common@v0.2.0?type=module",
+      "purl": "pkg:golang/github.com/devops-kung-fu/common@v0.2.1?type=module",
       "externalReferences": [
         {
           "url": "https://github.com/devops-kung-fu/common",
@@ -98,18 +98,18 @@
       ]
     },
     {
-      "bom-ref": "pkg:golang/github.com/gookit/color@v1.5.0?type=module",
+      "bom-ref": "pkg:golang/github.com/gookit/color@v1.5.1?type=module",
       "type": "library",
       "name": "github.com/gookit/color",
-      "version": "v1.5.0",
+      "version": "v1.5.1",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "d4ea68c37f81583c2aa2befc0dc2642422309e4be2162fabace00d922f41505c"
+          "content": "56383654471d1e9c2afa863adecfe4b07ae0258093a346f05af9a6616744f5f4"
         }
       ],
-      "purl": "pkg:golang/github.com/gookit/color@v1.5.0?type=module",
+      "purl": "pkg:golang/github.com/gookit/color@v1.5.1?type=module",
       "externalReferences": [
         {
           "url": "https://github.com/gookit/color",
@@ -216,21 +216,21 @@
     {
       "ref": "pkg:golang/github.com/devops-kung-fu/gardener@v1.0.1-0.20220419031709-11385b9e115f?type=module",
       "dependsOn": [
-        "pkg:golang/github.com/devops-kung-fu/common@v0.2.0?type=module",
-        "pkg:golang/github.com/gookit/color@v1.5.0?type=module",
+        "pkg:golang/github.com/devops-kung-fu/common@v0.2.1?type=module",
+        "pkg:golang/github.com/gookit/color@v1.5.1?type=module",
         "pkg:golang/github.com/spf13/afero@v1.8.2?type=module",
         "pkg:golang/github.com/spf13/cobra@v1.4.0?type=module"
       ]
     },
     {
-      "ref": "pkg:golang/github.com/devops-kung-fu/common@v0.2.0?type=module",
+      "ref": "pkg:golang/github.com/devops-kung-fu/common@v0.2.1?type=module",
       "dependsOn": [
-        "pkg:golang/github.com/gookit/color@v1.5.0?type=module",
+        "pkg:golang/github.com/gookit/color@v1.5.1?type=module",
         "pkg:golang/github.com/xo/terminfo@v0.0.0-20210125001918-ca9a967f8778?type=module"
       ]
     },
     {
-      "ref": "pkg:golang/github.com/gookit/color@v1.5.0?type=module",
+      "ref": "pkg:golang/github.com/gookit/color@v1.5.1?type=module",
       "dependsOn": [
         "pkg:golang/github.com/xo/terminfo@v0.0.0-20210125001918-ca9a967f8778?type=module"
       ]

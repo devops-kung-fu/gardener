@@ -120,7 +120,7 @@ If you want to get really into what ```gardener``` is doing under the hood, you 
 __NOTE:__ Ensure that for the ```url``` value you select the appropriate ```gardener``` release for your platform and architecture.
 
 ``` yaml
-version: 2.1.1
+version: 2.4.0
 hooks:
   - type: pre-commit
     actions:
