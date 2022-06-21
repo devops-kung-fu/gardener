@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/devops-kung-fu/common v0.2.1
 	github.com/gookit/color v1.5.1
-	github.com/spf13/cobra v1.4.0
+	github.com/spf13/cobra v1.5.0
 	github.com/stretchr/testify v1.7.2
 )
 
