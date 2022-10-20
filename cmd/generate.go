@@ -8,7 +8,7 @@ import (
 	"github.com/gookit/color"
 	"github.com/spf13/cobra"
 
-	"github.com/devops-kung-fu/gardener/src"
+	src "github.com/devops-kung-fu/gardener/lib"
 )
 
 var (
