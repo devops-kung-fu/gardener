@@ -6,7 +6,7 @@ require (
 	github.com/devops-kung-fu/common v0.2.5
 	github.com/gookit/color v1.5.2
 	github.com/spf13/cobra v1.6.1
-	github.com/stretchr/testify v1.8.0
+	github.com/stretchr/testify v1.8.1
 )
 
 require golang.org/x/text v0.4.0 // indirect
