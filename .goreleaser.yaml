@@ -2,7 +2,7 @@ project_name: gardener
 
 builds:
   - 
-    binary: bomber
+    binary: gardener
     goos:
       - darwin
       - linux

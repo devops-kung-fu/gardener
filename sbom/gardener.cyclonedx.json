@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:164ac901-cddb-413c-82d2-267301e4b8e9",
+  "serialNumber": "urn:uuid:54836f2b-3e75-4ab0-92c9-4929e8d095bb",
   "version": 1,
   "metadata": {
-    "timestamp": "2022-10-20T16:08:57-06:00",
+    "timestamp": "2022-10-24T20:30:02-06:00",
     "tools": [
       {
         "vendor": "anchore",
@@ -154,12 +154,12 @@
       ]
     },
     {
-      "bom-ref": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20220618181732-b2519ef8aa89?package-id=7d8f43b8e9e52b9e",
+      "bom-ref": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025003403-1999c8cb6115?package-id=23d7d55952bdb908",
       "type": "library",
       "name": "github.com/devops-kung-fu/gardener",
-      "version": "v0.0.0-20220618181732-b2519ef8aa89",
-      "cpe": "cpe:2.3:a:devops-kung-fu:gardener:v0.0.0-20220618181732-b2519ef8aa89:*:*:*:*:*:*:*",
-      "purl": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20220618181732-b2519ef8aa89",
+      "version": "v0.0.0-20221025003403-1999c8cb6115",
+      "cpe": "cpe:2.3:a:devops-kung-fu:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*",
+      "purl": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025003403-1999c8cb6115",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -179,19 +179,19 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops_kung_fu:gardener:v0.0.0-20220618181732-b2519ef8aa89:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops_kung_fu:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops-kung:gardener:v0.0.0-20220618181732-b2519ef8aa89:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops-kung:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops_kung:gardener:v0.0.0-20220618181732-b2519ef8aa89:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops_kung:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops:gardener:v0.0.0-20220618181732-b2519ef8aa89:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
@@ -412,12 +412,12 @@
       ]
     },
     {
-      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.6.0?package-id=eb898f60f96e9285",
+      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.6.1?package-id=ceafb7d03b5098b7",
       "type": "library",
       "name": "github.com/spf13/cobra",
-      "version": "v1.6.0",
-      "cpe": "cpe:2.3:a:spf13:cobra:v1.6.0:*:*:*:*:*:*:*",
-      "purl": "pkg:golang/github.com/spf13/cobra@v1.6.0",
+      "version": "v1.6.1",
+      "cpe": "cpe:2.3:a:spf13:cobra:v1.6.1:*:*:*:*:*:*:*",
+      "purl": "pkg:golang/github.com/spf13/cobra@v1.6.1",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -449,7 +449,7 @@
         },
         {
           "name": "syft:metadata:h1Digest",
-          "value": "h1:42a0n6jwCot1pUmomAp4T7DeMD+20LFv4Q54pxLf2LI="
+          "value": "h1:o94oiPyS4KD1mPy2fmcYYHHfCxLqYjJOhGsCHFZtEzA="
         },
         {
           "name": "syft:metadata:mainModule",
@@ -458,12 +458,12 @@
       ]
     },
     {
-      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.6.0?package-id=c8c4404c1551709f",
+      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.6.1?package-id=86964f5f4c273c89",
       "type": "library",
       "name": "github.com/spf13/cobra",
-      "version": "v1.6.0",
-      "cpe": "cpe:2.3:a:spf13:cobra:v1.6.0:*:*:*:*:*:*:*",
-      "purl": "pkg:golang/github.com/spf13/cobra@v1.6.0",
+      "version": "v1.6.1",
+      "cpe": "cpe:2.3:a:spf13:cobra:v1.6.1:*:*:*:*:*:*:*",
+      "purl": "pkg:golang/github.com/spf13/cobra@v1.6.1",
       "properties": [
         {
           "name": "syft:package:foundBy",
