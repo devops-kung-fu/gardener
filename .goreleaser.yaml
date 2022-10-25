@@ -19,7 +19,7 @@ universal_binaries:
 
 brews:
   -
-    name: bomber
+    name: gardener
     homepage: "https://github.com/devops-kung-fu/gardener"
     tap:
       owner: devops-kung-fu
