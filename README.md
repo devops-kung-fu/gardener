@@ -8,7 +8,7 @@ A utility that renders PlantUML diagram source in Markdown image tags.
 
 ## Overview
 
-[PlantUML](https://plantuml.com/) is a great application that allows users to create "UML as Code". It has a simple syntax, is a fantastic way to render any diagram, and abstracts a lot of the tedious work needed to draw diagrams in an editor. 
+[PlantUML](https://plantuml.com/) is a great application that allows users to create "Diagrams as Code". It has a simple syntax, is a fantastic way to render any diagram, and abstracts a lot of the tedious work needed to draw diagrams in an editor. 
 
 At [DKFM](https://github.com/devops-kung-fu), when we develop PlantUML documents, we like to have a way for readers to view them without having to download code and generate diagrams. ```gardener``` helps us do this. We can either run the executable manually, or use a pre-commit hook helper like [hooks](https://github.com/devops-kung-fu/hookz) to continuously generate diagrams before code is committed to a central repository.
 

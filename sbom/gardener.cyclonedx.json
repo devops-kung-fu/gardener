@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:54836f2b-3e75-4ab0-92c9-4929e8d095bb",
+  "serialNumber": "urn:uuid:c5a20ac6-6755-49b6-b0e8-75339518b267",
   "version": 1,
   "metadata": {
-    "timestamp": "2022-10-24T20:30:02-06:00",
+    "timestamp": "2022-10-24T20:33:44-06:00",
     "tools": [
       {
         "vendor": "anchore",
@@ -154,12 +154,12 @@
       ]
     },
     {
-      "bom-ref": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025003403-1999c8cb6115?package-id=23d7d55952bdb908",
+      "bom-ref": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025023100-07d78d18d3a2?package-id=c3c8d8340c886773",
       "type": "library",
       "name": "github.com/devops-kung-fu/gardener",
-      "version": "v0.0.0-20221025003403-1999c8cb6115",
-      "cpe": "cpe:2.3:a:devops-kung-fu:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*",
-      "purl": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025003403-1999c8cb6115",
+      "version": "v0.0.0-20221025023100-07d78d18d3a2",
+      "cpe": "cpe:2.3:a:devops-kung-fu:gardener:v0.0.0-20221025023100-07d78d18d3a2:*:*:*:*:*:*:*",
+      "purl": "pkg:golang/github.com/devops-kung-fu/gardener@v0.0.0-20221025023100-07d78d18d3a2",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -179,19 +179,19 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops_kung_fu:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops_kung_fu:gardener:v0.0.0-20221025023100-07d78d18d3a2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops-kung:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops-kung:gardener:v0.0.0-20221025023100-07d78d18d3a2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops_kung:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops_kung:gardener:v0.0.0-20221025023100-07d78d18d3a2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:devops:gardener:v0.0.0-20221025003403-1999c8cb6115:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:devops:gardener:v0.0.0-20221025023100-07d78d18d3a2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
