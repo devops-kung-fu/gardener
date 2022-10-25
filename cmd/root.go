@@ -15,7 +15,7 @@ import (
 
 var (
 	Afs     = &afero.Afero{Fs: afero.NewOsFs()}
-	version = "1.0.0"
+	version = "1.0.1"
 	debug   bool
 	Verbose bool
 	rootCmd = &cobra.Command{

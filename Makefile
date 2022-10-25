@@ -8,20 +8,20 @@ help: ## This help
 
 .DEFAULT_GOAL := help
 
-
 title:
 	@echo "gardener Makefile"
 	@echo "-----------------"
 
 build: ## Builds the application
+	go get -u ./...
+	go mod tidy
 	go build
 
 test: ## Runs tests and coverage
 	go test -v -coverprofile=coverage.out ./... && go tool cover -func=coverage.out
 
-install: build ## Builds an executable local version of gardener and puts in in /usr/local/bin
-	sudo chmod +x gardener
-	sudo mv hookz /usr/local/bin
+check: build ## Tests the pre-commit hooks if they exist
+	hookz reset --verbose --debug --verbose-output 
+	. .git/hooks/pre-commit
 
 all: title build test ## Makes all targets
-

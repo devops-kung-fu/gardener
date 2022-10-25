@@ -14,14 +14,30 @@ At [DKFM](https://github.com/devops-kung-fu), when we develop PlantUML documents
 
 ## Installation
 
-To install ```gardener```,  [download the latest release](https://github.com/devops-kung-fu/gardener/releases) , make is executable, rename it to ```gardener``` and toss it in your ```/usr/local/bin``` directory for Linux, or on your path for other operating systems.
+### Mac
 
-Linux Example:
+You can use [Homebrew](https://brew.sh) to install ```gardener``` using the following:
+
+``` bash
+brew tap devops-kung-fu/homebrew-tap
+brew install devops-kung-fu/homebrew-tap/gardener
+```
+
+If you do not have Homebrew, you can still [download the latest release](https://github.com/devops-kung-fu/hookz/releases) (ex: ```gardener_1.0.1_darwin_all.tar.gz```), extract the files from the archive, and use the ```gardener``` binary.  
+
+If you wish, you can move the ```gardener``` binary to your ```/usr/local/bin``` directory or anywhere on your path.
+
+### Linux
+
+To install ```gardener```,  [download the latest release](https://github.com/devops-kung-fu/hookz/releases) for your platform and install locally. For example, install ```gardener``` on Ubuntu:
 
 ```bash
-sudo chmod +x gardener-1.0.0-linux-amd64
-sudo mv gardener-1.0.0-linux-amd64 /usr/local/bin/gardener
+dpkg -i gardener_1.0.1_linux_arm64.deb
 ```
+
+### Windows
+
+To install ```gardener``` on Windows [download the latest release](https://github.com/devops-kung-fu/hookz/releases), extract, put somewhere on your PATH, and use.
 
 ## File Support
 
@@ -146,7 +162,7 @@ Here are some examples from processed from [diagrams/src/example1.pu](diagrams/s
 
 ```gardener``` uses the CycloneDX to generate a Software Bill of Materials in CycloneDX format (v1.4) every time a developer commits code to this repository. More information for CycloneDX is available [here](https://cyclonedx.org)
 
-The SBoM for the last commit of ```gardener``` is available [here](gardener-sbom.json).
+The SBoM for the last commit of ```gardener``` is available [here](sbom/gardener.cyclonedx.json).
 
 
 ## Credits
