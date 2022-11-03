@@ -8,7 +8,7 @@ import (
 	"github.com/gookit/color"
 	"github.com/spf13/cobra"
 
-	src "github.com/devops-kung-fu/gardener/lib"
+	"github.com/devops-kung-fu/gardener/lib"
 )
 
 var (
@@ -37,45 +37,21 @@ func init() {
 }
 
 func generate(path string) {
-	diagramFiles, e := src.FindFiles(Afs, path, ".*\\.(pu|puml|plantuml|iuml|wsd)")
+	diagramFiles, e := lib.FindFiles(Afs, path, ".*\\.(pu|puml|plantuml|iuml|wsd)")
 	if e != nil {
 		log.Fatal(e)
 	}
 	util.DoIf(Verbose, func() {
 		color.Style{color.FgLightBlue, color.OpBold}.Print("Generating Links...\n\n")
 		util.PrintInfo(fmt.Sprintf("Found %x diagrams", len(diagramFiles)))
+		for _, file := range diagramFiles {
+			util.PrintTabbed(file)
+		}
 		util.PrintInfo("Processing Markdown files")
 	})
 
-	markdownFiles, e := src.FindFiles(Afs, path, ".*\\.md")
-	if e != nil {
-		log.Fatal(e)
-	}
-	for _, markdownFile := range markdownFiles {
-		util.DoIf(Verbose, func() {
-			log.Print("Working on ", markdownFile)
-			util.PrintTabbed(markdownFile)
-		})
+	_, _ = lib.Generate(Afs, diagramFiles, path, Verbose, deflate)
 
-		for _, diagramFile := range diagramFiles {
-			diagramContent, err := src.ReadFileContentBytes(Afs, diagramFile)
-			if util.IsErrorBool(err) {
-				log.Fatal(err)
-			}
-			var url string
-			if deflate {
-				log.Print("Deflate Encoding Diagram for: ", diagramFile)
-				url = src.DeflateEncodedURL(diagramContent)
-			} else {
-				log.Print("Hex Encoding Diagram for: ", diagramFile)
-				url = src.HexEncodedURL(diagramContent)
-			}
-
-			searchImageStub := fmt.Sprintf("\\!\\[%s\\]\\(.*\\)", diagramFile)
-			replaceImageStub := fmt.Sprintf("![%s](%s)", diagramFile, url)
-			_, _ = src.ReplaceLineInFile(Afs, markdownFile, searchImageStub, replaceImageStub)
-		}
-	}
 	util.DoIf(Verbose, func() {
 		util.PrintSuccess("Done!\n")
 	})
