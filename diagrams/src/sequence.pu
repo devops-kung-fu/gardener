@@ -1,4 +1,4 @@
-@startuml
+@startuml Sequence Diagram Example
 skinparam backgroundColor #EEEBDC
 skinparam handwritten true
 

@@ -1,4 +1,4 @@
-package src
+package lib
 
 import (
 	"testing"
@@ -61,8 +61,9 @@ func TestHexEncodedURL(t *testing.T) {
 
 func TestReplaceLineInFile(t *testing.T) {
 	afs := &afero.Afero{Fs: afero.NewMemMapFs()}
-	afs.WriteFile("README.md", []byte("\\!\\[example.pu\\]\\(.*\\)"), 0644)
-	result, err := ReplaceLineInFile(afs, "README.md", "\\!\\[example.pu\\]\\(.*\\)", "![example.pu](https://example.com)")
+
+	afs.WriteFile("README.md", []byte("![example.pu]()"), 0644)
+	result, err := ReplaceLineInFile(afs, "README.md", "![example.pu]()", "![example.pu](https://example.com)")
 
 	assert.True(t, result)
 	assert.NoError(t, err)
