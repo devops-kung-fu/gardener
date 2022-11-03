@@ -84,11 +84,20 @@ Alice <-- Bob: Another authentication Response
 ``` markdown
 # My Markdown File
 
-Below is the image tag that gardner will update
+Below is the image tag that gardener will update
 
-![diagrams/src/simple.pu](http://www.plantuml.com/plantuml/png/1C3HQSGm40JGVrKn3QW14uwJ8Gqu5SZAW1RaNPyrWfIVzvwgZzOry6FNFOZllthTWwaCQqH-OOzpGrdgT5chid0S_2nEfJrEvFn26TQueInrkgnLMJWEpZjyCgKoh17vXJtE3SL3dG_gKgVBMfM5u-1dSIgLOOtuoXbxd1kAXpeVrALEbxKg2yV1UOTFfZVzTrqZ_GC00F__0G00__y=)
+![diagrams/src/aliceandbob.pu]()
 
 ```
+
+Gardener will change that link to:
+
+```
+![diagrams/src/aliceandbob.pu](http://www.plantuml.com/plantuml/png/1C3HQSGm40JGVrKn3QW14uwJ8Gqu5SZAW1RaNPyrWfIVzvwgZzOry6FNFOZllthTWwaCQqH-OOzpGrdgT5chid0S_2nEfJrEvFn26TQueInrkgnLMJWEpZjyCgKoh17vXJtE3SL3dG_gKgVBMfM5u-1dSIgLOOtuoXbxd1kAXpeVrALEbxKg2yV1UOTFfZVzTrqZ_GC00F__0G00__y=)
+```
+Which will render like this:
+
+![diagrams/src/simple.pu](http://www.plantuml.com/plantuml/png/1C3HQSGm40JGVrKn3QW14uwJ8Gqu5SZAW1RaNPyrWfIVzvwgZzOry6FNFOZllthTWwaCQqH-OOzpGrdgT5chid0S_2nEfJrEvFn26TQueInrkgnLMJWEpZjyCgKoh17vXJtE3SL3dG_gKgVBMfM5u-1dSIgLOOtuoXbxd1kAXpeVrALEbxKg2yV1UOTFfZVzTrqZ_GC00F__0G00__y=)
 
 ## Usage
 
