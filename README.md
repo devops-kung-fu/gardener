@@ -10,7 +10,7 @@ A utility that renders PlantUML diagram source in Markdown image tags.
 
 [PlantUML](https://plantuml.com/) is a great application that allows users to create "Diagrams as Code". It has a simple syntax, is a fantastic way to render any diagram, and abstracts a lot of the tedious work needed to draw diagrams in an editor. 
 
-At [DKFM](https://github.com/devops-kung-fu), when we develop PlantUML documents, we like to have a way for readers to view them without having to download code and generate diagrams. ```gardener``` helps us do this. We can either run the executable manually, or use a pre-commit hook helper like [hooks](https://github.com/devops-kung-fu/hookz) to continuously generate diagrams before code is committed to a central repository.
+At [DKFM](https://github.com/devops-kung-fu), when we develop PlantUML documents, we like to have a way for readers to view them in our Markdown without having to download code and generate diagrams themselves. ```gardener``` helps us do this. We can either run the executable manually, or use a pre-commit hook helper like [hooks](https://github.com/devops-kung-fu/hookz) to continuously generate diagrams before code is committed to a central repository.
 
 ## Installation
 
@@ -84,11 +84,20 @@ Alice <-- Bob: Another authentication Response
 ``` markdown
 # My Markdown File
 
-Below is the image tag that gardner will update
+Below is the image tag that gardener will update
 
-![diagrams/src/alicenbob.pu]()
+![diagrams/src/aliceandbob.pu]()
 
 ```
+
+Gardener will change that link to:
+
+```
+![diagrams/src/aliceandbob.pu](http://www.plantuml.com/plantuml/png/1C3HQSGm40JGVrKn3QW14uwJ8Gqu5SZAW1RaNPyrWfIVzvwgZzOry6FNFOZllthTWwaCQqH-OOzpGrdgT5chid0S_2nEfJrEvFn26TQueInrkgnLMJWEpZjyCgKoh17vXJtE3SL3dG_gKgVBMfM5u-1dSIgLOOtuoXbxd1kAXpeVrALEbxKg2yV1UOTFfZVzTrqZ_GC00F__0G00__y=)
+```
+Which will render like this:
+
+![diagrams/src/simple.pu](http://www.plantuml.com/plantuml/png/1C3HQSGm40JGVrKn3QW14uwJ8Gqu5SZAW1RaNPyrWfIVzvwgZzOry6FNFOZllthTWwaCQqH-OOzpGrdgT5chid0S_2nEfJrEvFn26TQueInrkgnLMJWEpZjyCgKoh17vXJtE3SL3dG_gKgVBMfM5u-1dSIgLOOtuoXbxd1kAXpeVrALEbxKg2yV1UOTFfZVzTrqZ_GC00F__0G00__y=)
 
 ## Usage
 
@@ -141,22 +150,25 @@ hooks:
   - type: pre-commit
     actions:
       - name: "Generate Images for PlantUML"
-        url: https://github.com/devops-kung-fu/gardener/releases/download/v1.0.0/gardener-1.0.0-linux-amd64
-        args: ["deflate"]
+        exec: gardener
+        args: ["generate", "--deflate", "."]
 ```
 
 ## Examples
 
 Here are some examples from processed from [diagrams/src/example1.pu](diagrams/src/example1.pu) and [diagrams/src/example2.pu](diagrams/src/example2.pu). View the source of this README.md page to see the URL's that ```gardener``` has created.
 
-`diagrams/src/example1.pu`
+`diagrams/src/sequence.pu`
 
-![diagrams/src/example1.pu](http://www.plantuml.com/plantuml/png/1C3HZSCW40JGVwgO1cZ0Ebd19RW3u4PY9RARcA7_lDTIVRJVCvLfdSWdhcW7ojQWotgLXUFcTtCfNT6GyuaohVD0sHfqMQ-oSDnSd_35bCgqJkGJLxG3nKE33-hMeCjwbONZvdTpAPLfdVZB6LUq0yL3Wm_grg3BUfM5u-RwX2-c5_r_lsVw0G00__y1003__m==)
+![diagrams/src/sequence.pu](http://www.plantuml.com/plantuml/png/1C3DRXJD3WRWVLs55TQpO8N8OaJ_PAGZHQZ526NzuZPphEvskLskGBZwx_dM4f7zsEakPnTZeLdn21pqyXU7xrBQfkO87FGBl3sYTbkdkjUWJoylB-CybRQfEG87_H-s_WdD5AECBgMqJSqHEAZ9sSLOXeZwPwfx3Pf5_BvzZ7kNqZOrH-2W9cSNOnauQumrLecfxZLe5l7xzZ7kNKhRr1o1WvgSNOpbLN_BgvgCDLQ9gUurwDVUfRHDpH4ugCdPnLXUzRUygia8tXvHkwrJtMlGf-7hFCstqZOrH-2W9cSNOraGgQmEox76AZ7LlGRD8dxVFiQzIscRcYDmK9EpYx4iY5HMX-K8tXvHkwrJtMlGNDU7nBXtAMrJSmGEQd9sCPO5aShgiBnLo-yuXFvtE3XBszGSWOEQd5sCPK6aiZeiRzNohl-4FdyfRLDp10vgSdOnbWMHokgml5NBgUurwDFmTPxcMscRcYDmK9EpYx4Cd3L6yFQ8scsTwbw3S7QKjgav0WSrERiOoy1PurOjfxhNe5d4xzl7k7SfRLDp10vgSdOnbe6pngrQtlMVqESlfMrgZi11JSuknZ9mrhXLo-yuX0Qu_2q5d3NePvCeZaXbTLZIqqsZ9KqxMdiYD5eGgQmEow4u8fNLOKbFT-5gAqqxMdiYD5eGgQmEox4u8fNLOKbFhsX9quxMdWYD5aGggyDoAkLdaw3BbHP4Agl3SdYckRxLs0euzHqfj21IMHsMGoaB8fNLOJdGvKeB8fNLOJa-qnI25FeXPvUM1PpwZXHQ4Aci3iknb0MHokgm7EbofGMHokgmd9vfhcyrjW9EVKSABOXKLeVbL1P4Agl3SgBBvKeB8fNLOJa-qrkDRQucPPMMKJzeGQIoEYodKXP4Agl3SgJBvKeB8fNLOJayqmyvkxIaAGGfQra5dFgE55eGgQmEox6K1P7Awh0Sw7AvqiycyKnpDIchW5FVaK8B8fNLOJcKRs9hF_R_0000__y1003__m==)
 
-`diagrams/src/example2.pu`
+`diagrams/src/class.pu`
 
-![diagrams/src/example2.pu](http://www.plantuml.com/plantuml/png/1C3HZSCW40JGVwgO1cZ0Ebd19RW3u4PY9RARcA7_lDTIVRJVCvLfdSWdhcW7ojQWotgLXUFcTtCfNT6GyuaohVD0sHfqMQ-oSDnSd_35bCgqJkGJLxG3nKE33-hMeCjwbONZvdTpAPLfdVZB6LUq0yL3Wm_grg3BUfM5u-RwX2-c5_r_lsVw0G00__y1003__m==)
+![diagrams/src/class.pu](http://www.plantuml.com/plantuml/png/1C3DQjj04C3n-pp5_sXZjD072AIqQM-vc1vo4eCqbGNx8NPcxPgGT-_lrKDxZ9BvaTMTdxjkNGjl_xGSsMJ9wiwlrhxnAG0VRR1ePRW9WDlTkcRoNiq582K1KEVP1W-j8G1QLxRUnY40Boy24BUzRawqpU9cFGd0F0l0HniiMhdftL2dQ7sozJOE5m1rdctmq1e2C4q2y5PNsb-MhExo9R9aTUUFM-TJ05BYkfSZ6xyjmZef2S25pU9TYvtE0d1Xi_Y-hjtSJsS1I8bhAuPRX7LI4e0BRl6knKvd0PXdZhxVDOnLGvbd0TXhe9i9m3HXTUdF8snbcWJW6dsl6uUwFrfVvKjUhQwZvFy0003__m400F__)
 
+`diagrams/src/ditta.pu`
+
+![diagrams/src/ditaa.pu](http://www.plantuml.com/plantuml/png/1C0nIbnR083X_gpYipxy6tZ5Gy4KWPJMWOipaI5U9-WT8kHax_dkFuxj_RZjhnw_FZqy-FAvxRzUp-DqERPjpAggYLbLJPXLrHmBO5RJwN9icrd_Mu0r5a_dpuE5MLLDMAVBzlA-xMkin-lpRJ-_7GlhRjzUBizt2nPWZGN-dFukBC221LXZLhDgObPL4sPLDGVy1m00uFk01VXsFJvSV_XzVVy9h06pggggggggEUxFRwVR_leF003__m400F__)
 
 ## Software Bill of Materials
 
